@@ -34,6 +34,8 @@ int access_replace_value(CDataframe* df, int row, int col, COL_TYPE *new_value);
 
 void print_column_names(CDataframe* df);
 
+CDataframe* create_empty_dataframe();
+
 
 
 
