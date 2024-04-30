@@ -36,6 +36,8 @@ void print_column_names(CDataframe* df);
 
 CDataframe* create_empty_dataframe();
 
+void fill_dataframe_from_user_input(CDataframe* df);
+
 
 
 
