@@ -40,6 +40,7 @@ void fill_dataframe_from_user_input(CDataframe* df);
 
 void print_dataframe(CDataframe* df);
 
+void print_dataframe_rows(CDataframe* df, int limit);
 
 
 
