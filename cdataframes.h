@@ -46,6 +46,8 @@ int add_row_to_dataframe(CDataframe* df, int* values, int num_values);
 
 int remove_row_from_dataframe(CDataframe* df, int index);
 
+int add_column_to_dataframe(CDataframe* df, COLUMN* col);
+
 
 
 
