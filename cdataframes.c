@@ -390,5 +390,14 @@ int rename_column(CDataframe* df, int index, char* new_title) {
     return 1;
 }
 
+void print_num_rows(CDataframe* df) {
+    if (!df) {
+        printf("CDataframe non initialisé\n");
+        return;
+    }
+
+    printf("Nombre de lignes : %d\n", df->columns[0]->size);
+}
+
 
 
