@@ -52,5 +52,9 @@ int remove_column_from_dataframe(CDataframe* df, int index);
 
 int rename_column(CDataframe* df, int index, char* new_title);
 
+int search_value_in_dataframe(CDataframe* df, int value);
+
+void print_column_names(CDataframe* df);
+
 
 
