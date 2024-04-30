@@ -271,3 +271,16 @@ CDataframe* create_empty_dataframe() {
     CDataframe* df = create_dataframe();
     return df;
 }
+
+void fill_dataframe_from_user_input(CDataframe* df) {
+    if (!df) {
+        return; // DataFrame non initialisé
+    }
+
+    int value;
+    for (int i = 0; i < df->size; i++) {
+        printf("Veuillez saisir une valeur pour la colonne '%s' : ", df->columns[i]->title);
+        scanf("%d", &value);
+        insert_value(df->columns[i], &value);
+    }
+}
