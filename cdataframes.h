@@ -58,5 +58,6 @@ void print_column_names(CDataframe* df);
 
 void print_num_rows(CDataframe* df);
 
+int count_cells_equal_to(CDataframe* df, COL_TYPE* value);
 
 
