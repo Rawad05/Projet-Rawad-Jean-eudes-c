@@ -333,3 +333,15 @@ void print_dataframe_rows(CDataframe* df, int limit) {
     }
 }
 
+int add_row_to_dataframe(CDataframe* df, int* values, int num_values) {
+    if (!df || num_values != df->size) {
+        return 0; // Arguments invalides
+    }
+
+    for (int i = 0; i < num_values; i++) {
+        insert_value(df->columns[i], &values[i]);
+    }
+
+    return 1; 
+}
+
