@@ -56,5 +56,7 @@ int search_value_in_dataframe(CDataframe* df, int value);
 
 void print_column_names(CDataframe* df);
 
+void print_num_rows(CDataframe* df);
+
 
 
