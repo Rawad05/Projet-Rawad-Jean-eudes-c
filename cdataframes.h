@@ -48,6 +48,8 @@ int remove_row_from_dataframe(CDataframe* df, int index);
 
 int add_column_to_dataframe(CDataframe* df, COLUMN* col);
 
+int remove_column_from_dataframe(CDataframe* df, int index);
+
 
 
 
