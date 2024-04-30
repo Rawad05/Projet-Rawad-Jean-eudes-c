@@ -42,6 +42,8 @@ void print_dataframe(CDataframe* df);
 
 void print_dataframe_rows(CDataframe* df, int limit);
 
+int add_row_to_dataframe(CDataframe* df, int* values, int num_values);
+
 
 
 
