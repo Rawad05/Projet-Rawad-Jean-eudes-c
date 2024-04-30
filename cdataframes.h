@@ -62,4 +62,6 @@ int count_cells_equal_to(CDataframe* df, COL_TYPE* value);
 
 int count_cells_greater_than(CDataframe* df, COL_TYPE* value);
 
+int count_cells_less_than(CDataframe* df, COL_TYPE* value);
+
 
