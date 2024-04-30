@@ -50,6 +50,7 @@ int add_column_to_dataframe(CDataframe* df, COLUMN* col);
 
 int remove_column_from_dataframe(CDataframe* df, int index);
 
+int rename_column(CDataframe* df, int index, char* new_title);
 
 
 
