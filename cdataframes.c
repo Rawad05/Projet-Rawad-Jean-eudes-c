@@ -379,5 +379,16 @@ int remove_column_from_dataframe(CDataframe* df, int index) {
     return 1; 
 }
 
+int rename_column(CDataframe* df, int index, char* new_title) {
+    if (!df || index < 0 || index >= df->size) {
+        return 0; 
+    }
+
+    free(df->columns[index]->title);
+    df->columns[index]->title = strdup(new_title);
+
+    return 1;
+}
+
 
 
