@@ -38,6 +38,8 @@ CDataframe* create_empty_dataframe();
 
 void fill_dataframe_from_user_input(CDataframe* df);
 
+void print_dataframe(CDataframe* df);
+
 
 
 
