@@ -433,6 +433,23 @@ int count_cells_greater_than(CDataframe* df, COL_TYPE* value) {
     return count;
 }
 
+int count_cells_less_than(CDataframe* df, COL_TYPE* value) {
+    if (!df || !value) {
+        return 0; 
+    }
+
+    int count = 0;
+    for (int i = 0; i < df->size; i++) {
+        for (int j = 0; j < df->columns[i]->size; j++) {
+            if (memcmp(df->columns[i]->data[j], value, sizeof(COL_TYPE)) < 0) {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+
 
 
 
