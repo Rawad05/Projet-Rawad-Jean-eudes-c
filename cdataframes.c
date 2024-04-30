@@ -345,3 +345,19 @@ int add_row_to_dataframe(CDataframe* df, int* values, int num_values) {
     return 1; 
 }
 
+int remove_row_from_dataframe(CDataframe* df, int index) {
+    if (!df || index < 0 || index >= df->columns[0]->size) {
+        return 0; // Arguments invalides
+    }
+
+    for (int i = 0; i < df->size; i++) {
+        
+        for (int j = index; j < df->columns[i]->size - 1; j++) {
+            df->columns[i]->data[j] = df->columns[i]->data[j + 1];
+        }
+        df->columns[i]->size--; 
+    }
+
+    return 1; 
+}
+
