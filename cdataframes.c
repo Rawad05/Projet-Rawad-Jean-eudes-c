@@ -361,3 +361,23 @@ int remove_row_from_dataframe(CDataframe* df, int index) {
     return 1; 
 }
 
+int remove_column_from_dataframe(CDataframe* df, int index) {
+    if (!df || index < 0 || index >= df->size) {
+        return 0; // Arguments invalides
+    }
+
+    
+    delete_column(&(df->columns[index]));
+
+    
+    for (int i = index; i < df->size - 1; i++) {
+        df->columns[i] = df->columns[i + 1];
+    }
+
+    df->size--; 
+
+    return 1; 
+}
+
+
+
