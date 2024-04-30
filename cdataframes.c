@@ -399,5 +399,24 @@ void print_num_rows(CDataframe* df) {
     printf("Nombre de lignes : %d\n", df->columns[0]->size);
 }
 
+int count_cells_equal_to(CDataframe* df, COL_TYPE* value) {
+    if (!df || !value) {
+        return 0; 
+    }
+
+    int count = 0;
+    for (int i = 0; i < df->size; i++) {
+        for (int j = 0; j < df->columns[i]->size; j++) {
+            if (memcmp(df->columns[i]->data[j], value, sizeof(COL_TYPE)) == 0) {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+
+
+
 
 
