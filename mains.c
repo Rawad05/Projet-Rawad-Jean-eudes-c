@@ -104,5 +104,53 @@ int main() {
     free(df->columns);
     free(df);
 
+        // Création d'une instance de CDataframe
+    CDataframe* df = create_dataframe();
+    if (!df) {
+        printf("Erreur lors de la création du CDataframe\n");
+        return 1;
+    }
+
+    // Ajout de colonnes à la structure
+    COLUMN* col1 = create_columns(INT, "Column1");
+    COLUMN* col2 = create_columns(INT, "Column2");
+
+    if (!add_column_to_dataframe(df, col1)) {
+        printf("Erreur lors de l'ajout de la colonne 1\n");
+        return 1;
+    }
+
+    if (!add_column_to_dataframe(df, col2)) {
+        printf("Erreur lors de l'ajout de la colonne 2\n");
+        return 1;
+    }
+
+    // Ajout de lignes de valeurs à la structure
+    int values1[] = {1, 2, 3, 4, 5};
+    int values2[] = {6, 7, 8, 9, 10};
+
+    if (!add_row_to_dataframe(df, values1, sizeof(values1)/sizeof(values1[0]))) {
+        printf("Erreur lors de l'ajout de la ligne de valeurs 1\n");
+        return 1;
+    }
+
+    if (!add_row_to_dataframe(df, values2, sizeof(values2)/sizeof(values2[0]))) {
+        printf("Erreur lors de l'ajout de la ligne de valeurs 2\n");
+        return 1;
+    }
+
+    // Affichage du contenu de la structure
+    printf("Contenu du CDataframe :\n");
+    print_dataframe(df);
+
+    // Libération de la mémoire
+    for (int i = 0; i < df->size; i++) {
+        free(df->columns[i]->title);
+        free(df->columns[i]->data);
+        free(df->columns[i]);
+    }
+    free(df->columns);
+    free(df);
+
     return 0;
 }
