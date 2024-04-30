@@ -266,3 +266,8 @@ void print_column_names(CDataframe* df)
         printf("%s\n", df->columns[i]->title);
     }
 }
+
+CDataframe* create_empty_dataframe() {
+    CDataframe* df = create_dataframe();
+    return df;
+}
