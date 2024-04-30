@@ -283,4 +283,28 @@ void fill_dataframe_from_user_input(CDataframe* df) {
         scanf("%d", &value);
         insert_value(df->columns[i], &value);
     }
+
+    void print_dataframe(CDataframe* df) {
+    if (!df) {
+        printf("CDataframe non initialisé\n");
+        return;
+    }
+
+    printf("Nombre de colonnes : %d\n", df->size);
+    printf("Contenu du CDataframe :\n");
+
+    
+    for (int i = 0; i < df->size; i++) {
+        printf("%s\t", df->columns[i]->title);
+    }
+    printf("\n");
+
+    
+    for (int i = 0; i < df->size; i++) {
+        for (int j = 0; j < df->columns[i]->size; j++) {
+            printf("%d\t", df->columns[i]->data[j]);
+        }
+        printf("\n");
+    }
 }
+
