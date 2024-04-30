@@ -308,3 +308,28 @@ void fill_dataframe_from_user_input(CDataframe* df) {
     }
 }
 
+void print_dataframe_rows(CDataframe* df, int limit) {
+    if (!df) {
+        printf("CDataframe non initialisé\n");
+        return;
+    }
+
+    
+    for (int i = 0; i < df->size; i++) {
+        printf("%s\t", df->columns[i]->title);
+    }
+    printf("\n");
+
+    
+    for (int j = 0; j < limit; j++) {
+        for (int i = 0; i < df->size; i++) {
+            if (j < df->columns[i]->size) {
+                printf("%d\t", df->columns[i]->data[j]);
+            } else {
+                printf("\t"); 
+            }
+        }
+        printf("\n");
+    }
+}
+
