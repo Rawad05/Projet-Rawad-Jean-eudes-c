@@ -34,34 +34,3 @@ int access_replace_value(CDataframe* df, int row, int col, COL_TYPE *new_value);
 
 void print_column_names(CDataframe* df);
 
-CDataframe* create_empty_dataframe();
-
-void fill_dataframe_from_user_input(CDataframe* df);
-
-void print_dataframe(CDataframe* df);
-
-void print_dataframe_rows(CDataframe* df, int limit);
-
-int add_row_to_dataframe(CDataframe* df, int* values, int num_values);
-
-int remove_row_from_dataframe(CDataframe* df, int index);
-
-int add_column_to_dataframe(CDataframe* df, COLUMN* col);
-
-int remove_column_from_dataframe(CDataframe* df, int index);
-
-int rename_column(CDataframe* df, int index, char* new_title);
-
-int search_value_in_dataframe(CDataframe* df, int value);
-
-void print_column_names(CDataframe* df);
-
-void print_num_rows(CDataframe* df);
-
-int count_cells_equal_to(CDataframe* df, COL_TYPE* value);
-
-int count_cells_greater_than(CDataframe* df, COL_TYPE* value);
-
-int count_cells_less_than(CDataframe* df, COL_TYPE* value);
-
-
