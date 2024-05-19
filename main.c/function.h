@@ -1,28 +1,42 @@
-// function.h
-
 #ifndef FUNCTION_H
 #define FUNCTION_H
 
+
 typedef struct {
-    int **data;   
-    int rows;      
-    int cols;      
+    int** data;
+    int rows;
+    int cols;
 } CDataframe;
 
-// Function Prototypes
-CDataframe create_empty_dataframe(int rows, int cols);
-void fill_dataframe_from_input(CDataframe *df);
-void print_dataframe(const CDataframe *df);
-void print_dataframe_part(const CDataframe *df, int startRow, int endRow, int startCol, int endCol);
-void add_row(CDataframe *df, int *row_values);
-void delete_row(CDataframe *df, int row_index);
-void add_column(CDataframe *df, int *col_values);
-void delete_column(CDataframe *df, int col_index);
-void rename_column(CDataframe *df, int col_index, char *new_name);
-int search_value(const CDataframe *df, int value);
-void set_value(CDataframe *df, int row, int col, int value);
-int get_value(const CDataframe *df, int row, int col);
-void print_column_names(const CDataframe *df);
-void display_stats(const CDataframe *df);
 
-#endif 
+// Alimentation
+CDataframe* creer_dataframe_vide(int rows, int cols);
+void remplir_dataframe(CDataframe* df);
+void remplir_dataframe_en_dur(CDataframe* df, int** values);
+
+// Affichage
+void afficher_dataframe(CDataframe* df);
+void afficher_partie_lignes(CDataframe* df, int limit);
+void afficher_partie_colonnes(CDataframe* df, int limit);
+
+// Opérations usuelles
+void ajouter_ligne(CDataframe* df, int* values);
+void supprimer_ligne(CDataframe* df, int row_index);
+void ajouter_colonne(CDataframe* df, int* values);
+void supprimer_colonne(CDataframe* df, int col_index);
+void renommer_colonne(CDataframe* df, int col_index, char* new_name);
+int verifier_valeur(CDataframe* df, int value);
+int acceder_valeur(CDataframe* df, int row, int col);
+void remplacer_valeur(CDataframe* df, int row, int col, int value);
+void afficher_noms_colonnes(CDataframe* df);
+
+// Analyse et statistiques
+int nombre_de_lignes(CDataframe* df);
+int nombre_de_colonnes(CDataframe* df);
+int nombre_de_cellules_egales(CDataframe* df, int x);
+int nombre_de_cellules_inferieures(CDataframe* df, int x);
+int nombre_de_cellules_superieures(CDataframe* df, int x);
+
+#endif // FUNCTION_H
+
+
