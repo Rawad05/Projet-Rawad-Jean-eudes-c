@@ -1,10 +1,97 @@
-Partie 1:
+Partie 1: cdataframes
+
+-Compilation:
+
+1. Prérequis : Assurez-vous que GCC  est installé sur votre système. Vous pouvez l’installer via le gestionnaire de paquets de votre système d’exploitation 
+
+2.	Création d’un fichier d’en-tête : Si le programme fait référence à un fichier d’en-tête "cdataframes.h", assurez-vous que ce fichier est présent dans le même répertoire que cdataframes.c. Le fichier d’en-tête doit contenir les déclarations des structures et des fonctions utilisées dans cdataframes.c.
+
+3.	Compilation : Ouvrez un terminal dans le dossier contenant vos fichiers source. Compilez le fichier source avec la commande suivante :
+   gcc -o cdataframes cdataframes.c
+
+-utilisation:
+
+Pour utiliser le programme, vous aurez besoin  des fonctions disponibles dans cdataframes.c:
+	•	Créer un dataframe : Utilisez la fonction create_dataframe() pour initialiser un nouveau dataframe.
+	•	Ajouter une colonne : La fonction add_column_to_dataframe(CDataframe* df, COLUMN* col) permet d’ajouter une colonne à votre dataframe. Vous devrez créer et configurer une colonne avant de l’ajouter.
+	•	Manipulation des données :  le programme contient des fonctions pour manipuler ou afficher les données, ces fonctions seront également utilisées.
+
+ -exemple de code:
+ 
+ Voici un exemple simplifié d’utilisation de ces fonctions dans un programme principal :
+ 
+ #include "cdataframes.h"
+
+int main() {
+    CDataframe* my_df = create_dataframe();
+    if (my_df == NULL) {
+        printf("Erreur de création du dataframe.\n");
+        return 1;
+    }
+
+    // Supposons que vous avez une fonction pour créer une colonne
+    COLUMN* new_column = create_column("Nom de la colonne", DATA_TYPE);
+    if (add_column_to_dataframe(my_df, new_column)) {
+        printf("Colonne ajoutée avec succès.\n");
+    } else {
+        printf("Échec de l'ajout de la colonne.\n");
+    }
+
+    // Ajoutez d'autres manipulations ici
+
+    // N'oubliez pas de libérer les ressources allouées
+    free_dataframe(my_df);
+    return 0;
+}
+
+partie 2: columns
+
+-compilation:
+1.	Prérequis : Assurez-vous que GCC est installé sur votre machine.
+2.	Fichier d’en-tête : Vérifiez que vous avez un fichier d’en-tête columns.h dans le même répertoire que columns.c. Ce fichier doit contenir les déclarations pour les structures et les fonctions utilisées.
+3.	Compiler le fichier :
+gcc -o columns columns.c
+
+-utilisation:
+1.	create_columns :
+	 •	Description : Crée une colonne avec un titre et un type spécifié.
+	 •	Paramètres :
+	        •	type : Type de données de la colonne (doit être défini dans l’énumération ENUM_TYPE).
+        	•	title : Titre de la colonne.
+        	•	Retour : Pointeur vers la nouvelle colonne ou NULL en cas d’échec.
+	2.	insert_value :
+	•	Description : Insère une valeur dans une colonne.
+	•	Paramètres :
+	        •	col : Pointeur vers la colonne où insérer la valeur.
+	        •	value : Pointeur vers la valeur à insérer.
+	        •	Retour : 1 si succès, 0 si échec.
+
+-exemple de code:
+Voici comment vous pourriez utiliser les fonctions dans un programme en C :
+#include "columns.h"
+
+int main() {
+    COLUMN* my_column = create_columns(INT_TYPE, "Age");
+    if (my_column == NULL) {
+        printf("Erreur de création de la colonne.\n");
+        return 1;
+    }
+
+    int age = 25;
+    if (insert_value(my_column, &age)) {
+        printf("Valeur ajoutée avec succès.\n");
+    } else {
+        printf("Échec de l'ajout de la valeur.\n");
+    }
+
+    // Ajouter d'autres opérations ici
+
+    free_column(my_column);
+    return 0;
+}
 
 
-partie 2: 
-
-
-partie 3: 
+partie 3: functions
 
  Alimentation
 
