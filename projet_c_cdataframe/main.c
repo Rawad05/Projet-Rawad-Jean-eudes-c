@@ -1,14 +1,14 @@
 
-#include "cdataframes.h"
-#include "columns.h"
+#include "cdataframe.h"
+#include "column.h"
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "cdataframes.h"
+#include "cdataframe.h"
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "cdataframes.h"  // Assurez-vous que ce fichier contient les définitions de toutes les fonctions mentionnées
+#include "cdataframe.h"  // Assurez-vous que ce fichier contient les définitions de toutes les fonctions mentionnées
 #include "function.h"
 int main() {
     CDataframes* df = NULL;
